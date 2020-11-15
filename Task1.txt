@@ -1,0 +1,112 @@
+Part A
+
+Program # 1
+You are to create a database of books that are stored using a vector. Keep track of the author, title and publication date of each book. Your program should have a main menu that allows the user to select from the following:
+1.	Add a book’s author, title, and date
+2.	Print an alphabetical list of the books sorted by author
+3.	Quit
+You must use a class to hold the data for each book. This class must hold three string fields, one to hold the author’s name, one for the publication date, and another to hold the book’s title. Store the entire database of books in a vector where each vector element is a book class object.
+To sort the data, use the generic sort function from the <algorithm> library. Note that this requires you to define the <operator to compare two objects of type book so that the author field from the two books are compared.
+
+Note: you are required to create three files, Book.h, Book.cpp and TestProgram.cpp.
+
+A sample of the input/output behavior might look as follows. Your I/O need not look identical, this is just to give you an idea of the functionality.
+
+Select from the following choices:
+1.	Add new book
+2.	Print listing sorted by author
+3.	Quit
+Choice : 1
+
+Enter title:
+Problem solving with c++
+Enter author:
+Savitch, walter
+Enter date:
+2006
+
+Select from the following choices:
+1.	Add new book
+2.	Print listing sorted by author
+3.	Quit
+Choice : 2
+
+The books entered so far, sorted alphabetically by author are:
+Savitch, walter. Problem Solving with C++. 2006.
+Sturgeon, Theodore, More Than Human. 1953.
+
+Select from the following choices:
+1.	Add new book
+2.	Print listing sorted by author
+3.	Quit
+Choice : 1
+
+Enter title:
+At Home in the Universe
+Enter author:
+Kauffman
+Enter date:
+1996
+
+Select from the following choices:
+1.	Add new book
+2.	Print listing sorted by author
+3.	Quit
+Choice : 2
+
+The books entered so far, sorted alphatetically by artist are:
+Kauffman, At Home in the Universe, 1996.
+Savitch, walter. Problem Solving with C++. 2006.
+Sturgeon, Theodore, More Than Human. 1953.
+
+Book.h
+
+#ifndef BOOK_H
+#define BOOK_H
+
+#include <string>
+using namespace std;
+
+class Book
+{
+public:
+	Book();
+Book(string new_author, string new_title, string new_date);
+void setData(string new_author, string new_title, string new_date);
+	string getAuthor() const;
+string getTitle() const;
+string getDate() const;
+friend bool operator< (const Book &book1, const Book &book2);
+private:
+	string author, title, date;
+};
+
+#endif
+
+
+Book.cpp
+Add the definitions of data members of class Book. The definition of friend function should be (in Book.cpp):
+bool operator< (const Book &book1, const Book &book2)
+{
+	return (book1.author < book2.author);
+}
+
+TestProgram.cpp
+Don’t forget to add header files, vector and algorithm along with other required header files.
+
+using namespace std;
+
+void AddNewBook(vector<Book> *bookdata);
+void PrintBooks(vector<Book> &bookdata);
+void SortBooks(vector<Book> &bookdata);
+void PrintMenu();
+
+int main()
+{
+	vector<Book> bookdata;
+
+	//Add your logic to test your class, using functions mentioned above
+
+	return 0;
+}
+
