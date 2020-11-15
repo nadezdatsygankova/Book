@@ -1,3 +1,13 @@
+/*Assignment
+Nadezda Tsygankova
+Part A 
+Task 1
+
+*/
+
+
+
+
 #include <iostream>
 #include <vector>
 #include<algorithm>
